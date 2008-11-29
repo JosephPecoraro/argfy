@@ -23,7 +23,8 @@ There is [RDoc Documentation](http://bogojoker.com/argfy/doc/).
 
 This is a simple program that prints out each file with
 a simple header when the input files change.  It shows
-the main advantage of this class over ARGF.
+the main advantage of this class over ARGF.  Here is
+the included `sample.rb` script:
 
     require 'ARGFy'
     
@@ -41,6 +42,23 @@ the main advantage of this class over ARGF.
       puts "%3d: %s" % [argf.lineno, line]
     
     end
+    puts
+
+An example usage on the included test files is:
+
+    shell> ruby sample.rb test/in1.txt test/in2.txt
+    
+    test/in1.txt
+    ------------
+      1: one
+      2: two
+    
+    test/in2.txt
+    ------------
+      3: alpha, beta, gamma
+      4: 0987654321
+      5: 
+      6: NOT BLANK!
 
 ## Contact
 
