@@ -11,9 +11,9 @@ or one at a time using `gets`.
 Although it acts like a stream, `ARGFy` keeps more information
 about the current input file.  These internal attributes are:
 
-  * _lineno_     - line number of the entire stream
-  * _filelineno_ - line number of the current file
-  * _filename_   - current file being processed
+  * _lineno_     - line number of the entire stream  
+  * _filelineno_ - line number of the current file  
+  * _filename_   - current file being processed  
 
 ## Example
 
@@ -40,7 +40,7 @@ the main advantage of this class over ARGF.
 
 ## Contact
 
-  * _Author_: Joseph Pecoraro [email](mailto:joepeck02@gmail.com)
-  * _Website_: [http://blog.bogojoker.com](http://blog.bogojoker.com)
-  * _Copyright_: Copyright (c) 2008 Joseph Pecoraro
-  * _License_: Distributes under the same terms as Ruby
+  * _Author_: Joseph Pecoraro [email](mailto:joepeck02@gmail.com)  
+  * _Website_: [http://blog.bogojoker.com](http://blog.bogojoker.com)  
+  * _Copyright_: Copyright (c) 2008 Joseph Pecoraro  
+  * _License_: Distributes under the same terms as Ruby  
