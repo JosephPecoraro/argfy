@@ -40,7 +40,7 @@ the main advantage of this class over ARGF.
 
 ## Contact
 
-  * _Author_: Joseph Pecoraro [email](mailto:joepeck02@gmail.com)  
+  * _Author_: Joseph Pecoraro ([email](mailto:joepeck02@gmail.com))  
   * _Website_: [http://blog.bogojoker.com](http://blog.bogojoker.com)  
   * _Copyright_: Copyright (c) 2008 Joseph Pecoraro  
   * _License_: Distributes under the same terms as Ruby  
