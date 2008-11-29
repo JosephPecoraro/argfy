@@ -15,6 +15,10 @@ about the current input file.  These internal attributes are:
   * _filelineno_ - line number of the current file  
   * _filename_   - current file being processed  
 
+## Documentation
+
+There is [RDoc Documentation](http://bogojoker.com/argfy/doc/).
+
 ## Example
 
 This is a simple program that prints out each file with
