@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: ARGFy [RDoc Documentation]</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }<\/style>" )
+
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">ARGFy</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+
+
+                <a href="../files/ARGFy_rb.html">
+
+                ARGFy.rb
+
+                </a>
+
+
+        <br />
+
+            </td>
+        </tr>
+
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+
+                Object
+
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="ARGFy.html">ARGFy</a> - a more flexible ARGF</h1>
+<p>
+This class is a more flexible version of the ARGF global. The constructor
+takes an array, a list of files, and processes them like one constant
+stream of input. Reading from the stream is always line by line either all
+at once using <a href="ARGFy.html#M000004">each</a> or one at a time using
+<a href="ARGFy.html#M000005">gets</a>.
+</p>
+<h2>Attributes</h2>
+<p>
+Internal states can help your program understand what was processed when
+you pull any line:
+</p>
+<ul>
+<li><em>lineno</em> - line number of the entire stream
+
+</li>
+<li><em>filelineno</em> - line number of the current file
+
+</li>
+<li><em>filename</em> - current file being processed
+
+</li>
+</ul>
+<h2>Example</h2>
+<p>
+This is a simple program that prints out each file with a simple header
+when the input files change. It shows the main advantage of this class over
+ARGF.
+</p>
+<pre>
+    require 'ARGFy'
+
+    argf = ARGFy.new(ARGV)
+    argf.each do |line|
+
+      # Per File Header
+      if argf.new_file?
+        filename = argf.filename
+        filename = &quot;STDIN&quot; if filename == &quot;-&quot;
+        puts '', filename, &quot;-&quot;*filename.length
+      end
+
+      # Print out the line with line numbers
+      puts &quot;%3d: %s&quot; % [argf.lineno, line]
+
+    end
+</pre>
+<h2>Contact</h2>
+<table>
+<tr><td valign="top">Author:</td><td>Joseph Pecoraro (<a
+href="mailto:joepeck02@gmail.com">joepeck02@gmail.com</a>)
+
+</td></tr>
+<tr><td valign="top">Copyright:</td><td>Copyright &#169; 2008 Joseph Pecoraro
+
+</td></tr>
+<tr><td valign="top">License:</td><td>Distributes under the same terms as Ruby
+
+</td></tr>
+</table>
+
+    </div>
+
+   </div>
+
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+
+        <a href="#M000003">add_file</a>&nbsp;&nbsp;
+
+        <a href="#M000004">each</a>&nbsp;&nbsp;
+
+        <a href="#M000005">gets</a>&nbsp;&nbsp;
+
+        <a href="#M000001">new</a>&nbsp;&nbsp;
+
+        <a href="#M000006">new_file?</a>&nbsp;&nbsp;
+
+        <a href="#M000002">reset</a>&nbsp;&nbsp;
+
+      </div>
+    </div>
+
+  </div>
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">filelineno</td>
+
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+
+          <td class="context-item-desc">
+last line number read from the current file
+
+</td>
+        </tr>
+
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">filename</td>
+
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+
+          <td class="context-item-desc">
+filename of the current file being read
+
+</td>
+        </tr>
+
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">lineno</td>
+
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+
+          <td class="context-item-desc">
+last line number read from the entire stream
+
+</td>
+        </tr>
+
+        </table>
+      </div>
+    </div>
+
+
+    <!-- if method_list -->
+
+    <div id="methods">
+
+      <h3 class="section-bar">Public Class methods</h3>
+
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+
+          <a href="ARGFy.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('ARGFy.src/M000001.html');return false;">
+
+          <span class="method-name">new</span><span class="method-args">(file_arr=[])</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Constructor takes an optional list of files, and will default to just using
+STDIN on an empty list.
+</p>
+
+        </div>
+      </div>
+
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+
+          <a href="ARGFy.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('ARGFy.src/M000003.html');return false;">
+
+          <span class="method-name">add_file</span><span class="method-args">(str)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Add a file to the file list
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+
+          <a href="ARGFy.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('ARGFy.src/M000004.html');return false;">
+
+          <span class="method-name">each</span><span class="method-args">() {|line, lineno, filelineno| ...}</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Goes through the lines of all files constantly updating the internal states
+<em>filename</em>, <em>lineno</em>, and <em>filelineno</em>.
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+
+          <a href="ARGFy.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('ARGFy.src/M000005.html');return false;">
+
+          <span class="method-name">gets</span><span class="method-args">()</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Gets each line individually.
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+
+          <a href="ARGFy.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('ARGFy.src/M000006.html');return false;">
+
+          <span class="method-name">new_file?</span><span class="method-args">()</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Returns true if the last line read was from a new file
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+
+          <a href="ARGFy.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('ARGFy.src/M000002.html');return false;">
+
+          <span class="method-name">reset</span><span class="method-args">()</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Sets the public and private states to their default values
+</p>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </div>
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
