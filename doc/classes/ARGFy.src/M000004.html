@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File ARGFy.rb, line 86</span>
+  <pre><span class="ruby-comment cmt"># File ARGFy.rb, line 89</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>
                 
                 <span class="ruby-comment cmt"># Save States that this affects, and set them to defaults</span>
@@ -27,7 +27,7 @@
                         <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">line</span> = <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">gets</span>
                                 <span class="ruby-ivar">@lineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
                                 <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-                                <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">line</span>, <span class="ruby-identifier">lineno</span>, <span class="ruby-identifier">filelineno</span>
+                                <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">line</span>
                         <span class="ruby-keyword kw">end</span>
                         
                 <span class="ruby-keyword kw">end</span>
