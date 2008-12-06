@@ -11,7 +11,7 @@ argf.each do |line|
 	end
 
 	# Print out the line with line numbers
-	puts "%3d: %s" % [argf.lineno, line]
+	puts "%3d: %s" % [argf.filelineno, line]
 
 end
 puts

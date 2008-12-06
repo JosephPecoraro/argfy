@@ -7,45 +7,45 @@
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File ARGFy.rb, line 120</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">gets</span>
-                
-                <span class="ruby-comment cmt"># Quick exit when depleted</span>
-                <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@index</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@files</span>.<span class="ruby-identifier">size</span>
-                <span class="ruby-ivar">@filename</span> = <span class="ruby-ivar">@files</span>[<span class="ruby-ivar">@index</span>]
-                
-                <span class="ruby-comment cmt"># Special case for STDIN</span>
-                <span class="ruby-comment cmt"># Handle a STDIN break right here</span>
-                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@filename</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;-&quot;</span>
-                        <span class="ruby-identifier">line</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>
-                        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">nil?</span>
-                                <span class="ruby-ivar">@index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-                                <span class="ruby-ivar">@filelineno</span> = <span class="ruby-value">0</span>
-                                <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">gets</span>
-                        <span class="ruby-keyword kw">else</span>
-                                <span class="ruby-ivar">@lineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-                                <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-                                <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">line</span>
-                        <span class="ruby-keyword kw">end</span>
-                <span class="ruby-keyword kw">end</span>
-                
-                <span class="ruby-comment cmt"># Bulk read into @lines</span>
-                <span class="ruby-ivar">@lines</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@filename</span>).<span class="ruby-identifier">readlines</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lines</span>.<span class="ruby-identifier">nil?</span>
-                
-                <span class="ruby-comment cmt"># When Depleted, go to the next</span>
-                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@lines</span>.<span class="ruby-identifier">size</span>
-                        <span class="ruby-ivar">@index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-                        <span class="ruby-ivar">@filelineno</span> = <span class="ruby-value">0</span>
-                        <span class="ruby-ivar">@lines</span> = <span class="ruby-keyword kw">nil</span>
-                        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">gets</span>
-                <span class="ruby-keyword kw">end</span>
-                
-                <span class="ruby-comment cmt"># Reads the line, updates internal variables</span>
-                <span class="ruby-identifier">line</span> = <span class="ruby-ivar">@lines</span>[<span class="ruby-ivar">@filelineno</span>]
-                <span class="ruby-ivar">@lineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-                <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-                <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">line</span>
-                
-        <span class="ruby-keyword kw">end</span></pre>
+  <pre>     <span class="ruby-comment cmt"># File ARGFy.rb, line 120</span>
+120:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">gets</span>
+121:     
+122:     <span class="ruby-comment cmt"># Quick exit when depleted</span>
+123:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@index</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@files</span>.<span class="ruby-identifier">size</span>
+124:     <span class="ruby-ivar">@filename</span> = <span class="ruby-ivar">@files</span>[<span class="ruby-ivar">@index</span>]
+125:     
+126:     <span class="ruby-comment cmt"># Special case for STDIN</span>
+127:     <span class="ruby-comment cmt"># Handle a STDIN break right here</span>
+128:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@filename</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;-&quot;</span>
+129:       <span class="ruby-identifier">line</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>
+130:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">nil?</span>
+131:         <span class="ruby-ivar">@index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+132:         <span class="ruby-ivar">@filelineno</span> = <span class="ruby-value">0</span>
+133:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">gets</span>
+134:       <span class="ruby-keyword kw">else</span>
+135:         <span class="ruby-ivar">@lineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+136:         <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+137:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">line</span>
+138:       <span class="ruby-keyword kw">end</span>
+139:     <span class="ruby-keyword kw">end</span>
+140:     
+141:     <span class="ruby-comment cmt"># Bulk read into @lines</span>
+142:     <span class="ruby-ivar">@lines</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@filename</span>).<span class="ruby-identifier">readlines</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lines</span>.<span class="ruby-identifier">nil?</span>
+143:     
+144:     <span class="ruby-comment cmt"># When Depleted, go to the next</span>
+145:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@lines</span>.<span class="ruby-identifier">size</span>
+146:       <span class="ruby-ivar">@index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+147:       <span class="ruby-ivar">@filelineno</span> = <span class="ruby-value">0</span>
+148:       <span class="ruby-ivar">@lines</span> = <span class="ruby-keyword kw">nil</span>
+149:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">gets</span>
+150:     <span class="ruby-keyword kw">end</span>
+151:     
+152:     <span class="ruby-comment cmt"># Reads the line, updates internal variables</span>
+153:     <span class="ruby-identifier">line</span> = <span class="ruby-ivar">@lines</span>[<span class="ruby-ivar">@filelineno</span>]
+154:     <span class="ruby-ivar">@lineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+155:     <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+156:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">line</span>
+157:     
+158:   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>
