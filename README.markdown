@@ -39,7 +39,7 @@ the included `sample.rb` script:
       end
     
       # Print out the line with line numbers
-      puts "%3d: %s" % [argf.filelineno, line]
+      puts "%3d: %s" % [argf.lineno, line]
     
     end
     puts
@@ -55,10 +55,10 @@ An example usage on the included test files is:
     
     test/in2.txt
     ------------
-      1: alpha, beta, gamma
-      2: 0987654321
-      3: 
-      4: NOT BLANK!
+      3: alpha, beta, gamma
+      4: 0987654321
+      5: 
+      6: NOT BLANK!
 
 ## Contact
 

@@ -7,34 +7,34 @@
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre>     <span class="ruby-comment cmt"># File ARGFy.rb, line 89</span>
- 89:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>
- 90:     
- 91:     <span class="ruby-comment cmt"># Save States that this affects, and set them to defaults</span>
- 92:     <span class="ruby-identifier">states</span> = [<span class="ruby-ivar">@lineno</span>, <span class="ruby-ivar">@filelineno</span>, <span class="ruby-ivar">@filename</span>]
- 93:     <span class="ruby-ivar">@lineno</span> = <span class="ruby-value">0</span>;
- 94:     
- 95:     <span class="ruby-comment cmt"># Read every line walking through the files</span>
- 96:     <span class="ruby-ivar">@files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
- 97:       
- 98:       <span class="ruby-comment cmt"># Setup States Per File</span>
- 99:       <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">filename</span>
-100:       <span class="ruby-ivar">@filelineno</span> = <span class="ruby-value">0</span>
-101:       <span class="ruby-identifier">stream</span> = <span class="ruby-constant">STDIN</span>
-102:       <span class="ruby-identifier">stream</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">filename</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'-'</span>
-103:       
-104:       <span class="ruby-comment cmt"># Read Lines</span>
-105:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">line</span> = <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">gets</span>
-106:         <span class="ruby-ivar">@lineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-107:         <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-108:         <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">line</span>
-109:       <span class="ruby-keyword kw">end</span>
-110:       
-111:     <span class="ruby-keyword kw">end</span>
-112:     
-113:     <span class="ruby-comment cmt"># Restore the original states</span>
-114:     <span class="ruby-ivar">@lineno</span>, <span class="ruby-ivar">@filelineno</span>, <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">states</span>
-115:     
-116:   <span class="ruby-keyword kw">end</span></pre>
+  <pre><span class="ruby-comment cmt"># File ARGFy.rb, line 89</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>
+                
+                <span class="ruby-comment cmt"># Save States that this affects, and set them to defaults</span>
+                <span class="ruby-identifier">states</span> = [<span class="ruby-ivar">@lineno</span>, <span class="ruby-ivar">@filelineno</span>, <span class="ruby-ivar">@filename</span>]
+                <span class="ruby-ivar">@lineno</span> = <span class="ruby-value">0</span>;
+                
+                <span class="ruby-comment cmt"># Read every line walking through the files</span>
+                <span class="ruby-ivar">@files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+                        
+                        <span class="ruby-comment cmt"># Setup States Per File</span>
+                        <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">filename</span>
+                        <span class="ruby-ivar">@filelineno</span> = <span class="ruby-value">0</span>
+                        <span class="ruby-identifier">stream</span> = <span class="ruby-constant">STDIN</span>
+                        <span class="ruby-identifier">stream</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">filename</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'-'</span>
+                        
+                        <span class="ruby-comment cmt"># Read Lines</span>
+                        <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">line</span> = <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">gets</span>
+                                <span class="ruby-ivar">@lineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                                <span class="ruby-ivar">@filelineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                                <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">line</span>
+                        <span class="ruby-keyword kw">end</span>
+                        
+                <span class="ruby-keyword kw">end</span>
+                
+                <span class="ruby-comment cmt"># Restore the original states</span>
+                <span class="ruby-ivar">@lineno</span>, <span class="ruby-ivar">@filelineno</span>, <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">states</span>
+                
+        <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>
